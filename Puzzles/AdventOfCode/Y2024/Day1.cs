@@ -2,10 +2,10 @@ using Infrastructure;
 
 namespace AdventOfCode.Y2024;
 
-public record Input(List<int> Left, List<int> Right);
-
 public class Day1() : Puzzle("day1.txt")
 {
+    private record Input(List<int> Left, List<int> Right);
+    
     private Input ProcessInput()
     {
         var input = LoadInputFile();
@@ -14,7 +14,11 @@ public class Day1() : Puzzle("day1.txt")
 
         foreach (var line in input)
         {
-            var split = line.Split(' ').Where(l => !string.IsNullOrWhiteSpace(l)).ToArray();
+            var split = 
+                line
+                    .Split(' ')
+                    .Where(l => !string.IsNullOrWhiteSpace(l))
+                    .ToArray();
 
             if (split.Length != 2)
             {
@@ -28,7 +32,7 @@ public class Day1() : Puzzle("day1.txt")
         return result;
     }
 
-    private string SolvePartOne(Input input)
+    private static string SolvePartOne(Input input)
     {
         input.Left.Sort();
         input.Right.Sort();
@@ -39,7 +43,7 @@ public class Day1() : Puzzle("day1.txt")
         return result.ToString();
     }
     
-    private string SolvePartTwo(Input input)
+    private static string SolvePartTwo(Input input)
     {
         var result =
             input.Left.Select(left =>

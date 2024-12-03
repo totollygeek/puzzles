@@ -5,7 +5,8 @@ using Infrastructure;
 using Spectre.Console;
 
 Puzzle[] puzzles = [
-    new Day1()
+    new Day1(),
+    new Day2(),
 ];
 
 var table = new Table();
